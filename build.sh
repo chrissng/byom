@@ -44,5 +44,5 @@ git clone \
   --branch=master \
   https://github.com/datagovsg/valhalla-docker.git
 pushd valhalla-docker
-./build
+./build.sh
 popd
