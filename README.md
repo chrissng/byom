@@ -10,4 +10,4 @@ Please ensure you have Docker and Docker Compose installed.
 
 ## Deploy
 
-`docker-compose -p maps -f pelias-docker/docker-compose.yml -f tileserver-docker/docker-compose.yml -f docker-compose.yml up --build -d`
+`docker-compose -p maps -f pelias-docker/docker-compose.yml -f tileserver-docker/docker-compose.yml -f docker-compose.yml up -d`
