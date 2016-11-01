@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Pelias geocoder
-
 git clone \
   --branch=master \
   https://github.com/datagovsg/pelias-docker.git
@@ -13,7 +12,6 @@ popd
 
 
 # TileServer-GL vector and raster tile server
-
 git clone \
   --branch=master \
   https://github.com/datagovsg/tileserver-docker.git
@@ -39,7 +37,6 @@ popd
 
 
 # Valhalla routing engine
-
 git clone \
   --branch=master \
   https://github.com/datagovsg/valhalla-docker.git

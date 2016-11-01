@@ -1,9 +1,0 @@
-version: '2'
-services:
-  valhalla:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: always
-    ports:
-      - 8002:8002
