@@ -1,17 +1,13 @@
 #!/bin/bash
 
 
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
-
-
 # Pelias geocoder
 git clone \
   --branch=master \
   https://github.com/datagovsg/pelias-docker.git
 pushd pelias-docker
 docker-compose -p pelias up --build -d elasticsearch
-docker-compose build pelias
+docker-compose build --force-rm pelias
 docker-compose -p pelias down
 popd
 
