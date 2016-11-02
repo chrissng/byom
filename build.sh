@@ -11,7 +11,7 @@ git clone \
   https://github.com/datagovsg/pelias-docker.git
 pushd pelias-docker
 docker-compose -p pelias up --build -d elasticsearch
-docker-compose build --no-cache pelias
+docker-compose build pelias
 docker-compose -p pelias down
 popd
 
@@ -25,8 +25,8 @@ git clone \
   https://github.com/osm2vectortiles/osm2vectortiles.git
 pushd osm2vectortiles
 docker-compose up -d postgis
-docker-compose run import-external
 wget -P import https://s3.amazonaws.com/metro-extracts.mapzen.com/singapore.osm.pbf
+docker-compose run import-external
 docker-compose run import-osm
 docker-compose run import-sql
 docker-compose run \
