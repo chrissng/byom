@@ -7,7 +7,7 @@ git clone \
   https://github.com/datagovsg/pelias-docker.git
 pushd pelias-docker
 docker-compose -p pelias up --build -d elasticsearch
-docker-compose build --force-rm pelias
+docker-compose build --force-rm --no-cache pelias
 docker-compose -p pelias down
 popd
 
