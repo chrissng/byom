@@ -1,6 +1,10 @@
 # Self sufficient maps
 
 A modern map stack so we can all work in a cave and not rely on anyone.
+- Singapore data: OSM planet extract, OpenAddresses with postal codes, GeoNames 
+- Pelias geocoder
+- TileServer GL vector and raster tile server (with custom dark and light styles)
+- Valhalla routing engine (turn-by-turn, matrix, isochrones)
 
 ## Build
 
