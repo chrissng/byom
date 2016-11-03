@@ -1,4 +1,4 @@
-# Self sufficient maps
+# Bring your own maps
 
 A modern map stack so we can all work in a cave and not rely on anyone.
 - Singapore data: OSM planet extract, OpenAddresses with postal codes, GeoNames 
