@@ -1,10 +1,22 @@
 #!/bin/bash
 
 
-# Pelias geocoder
+# Clone all the required git repos
 git clone \
   --branch=master \
   https://github.com/datagovsg/pelias-docker.git
+git clone \
+  --branch=master \
+  https://github.com/datagovsg/tileserver-docker.git
+git clone \
+  --branch=master \
+  https://github.com/osm2vectortiles/osm2vectortiles.git
+git clone \
+  --branch=master \
+  https://github.com/datagovsg/valhalla-docker.git
+
+
+# Pelias geocoder
 pushd pelias-docker
 docker-compose -p pelias up --build -d elasticsearch
 docker-compose build --force-rm --no-cache pelias
@@ -13,12 +25,6 @@ popd
 
 
 # TileServer-GL vector and raster tile server
-git clone \
-  --branch=master \
-  https://github.com/datagovsg/tileserver-docker.git
-git clone \
-  --branch=master \
-  https://github.com/osm2vectortiles/osm2vectortiles.git
 pushd osm2vectortiles
 docker-compose up -d postgis
 wget -P import https://s3.amazonaws.com/metro-extracts.mapzen.com/singapore.osm.pbf
@@ -38,9 +44,6 @@ popd
 
 
 # Valhalla routing engine
-git clone \
-  --branch=master \
-  https://github.com/datagovsg/valhalla-docker.git
 pushd valhalla-docker
 ./build.sh
 popd
