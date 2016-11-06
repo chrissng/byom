@@ -19,3 +19,7 @@ Please ensure you have Docker and Docker Compose installed. Also note that no ca
 ## Undeploy
 
 `./stop.sh`
+
+
+### Notes
+- Valhalla uses six digits of decimal decision for polyline encoding, OSRM uses five.
