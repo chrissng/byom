@@ -5,6 +5,7 @@ A modern map stack so we can all work in a cave and not rely on anyone.
 - Pelias geocoder
 - TileServer GL vector and raster tile server (with custom dark and light styles)
 - Valhalla routing engine (turn-by-turn, matrix, isochrones)
+- OSRM routing engine (routing, nearest street segment, map-matching, round trip, etc.)
 
 ## Build
 
