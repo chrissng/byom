@@ -15,6 +15,9 @@ git clone \
 git clone \
   --branch=master \
   https://github.com/datagovsg/valhalla-docker.git
+git clone \
+  --branch=master \
+  https://github.com/davidlowjw/osrm-backend-docker.git
 
 
 # Pelias geocoder
@@ -47,4 +50,10 @@ popd
 # Valhalla routing engine
 pushd valhalla-docker
 ./build.sh
+popd
+
+
+# OSRM routing engine
+pushd osrm-backend-docker
+docker build -t davidlowjw/osrm-backend-docker .
 popd
