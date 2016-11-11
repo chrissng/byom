@@ -1,11 +1,12 @@
 # Bring your own maps
 
 A modern map stack so we can all work in a cave and not rely on anyone.
-- Singapore data: OSM planet extract, OpenAddresses with postal codes, GeoNames 
+- Singapore data: OSM planet extract, OpenAddresses with postal codes, GeoNames
 - Pelias geocoder (forwards and reverse geocoding, autocomplete)
 - TileServer GL vector and raster tile server (with custom dark and light styles)
 - Valhalla routing engine (turn-by-turn, matrix, isochrones)
 - OSRM routing engine (routing, nearest street segment, map-matching, round trip, etc.)
+- Maputnik visual style editor for Mapbox GL
 
 ## Build
 
@@ -29,3 +30,4 @@ Please ensure you have Docker and Docker Compose installed. Also note that no ca
 - Tileserver: http://localhost:8080/styles/light/#17.67/1.30765/103.81606
 - Valhalla: http://localhost:8002/route?json={%22locations%22:[{%22lat%22:1.299828,%22lon%22:103.78927},{%22lat%22:1.366524,%22lon%22:103.838249}],%22costing%22:%22auto%22}
 - OSRM: http://localhost:5000/route/v1/asd/103.78927,1.299828;103.838249,1.366524
+- Maputnik: http://localhost:8888/ (and upload JSON style sheet, e.g. http://localhost:8080/styles/dark.json)
