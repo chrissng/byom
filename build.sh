@@ -18,6 +18,9 @@ git clone \
 git clone \
   --branch=master \
   https://github.com/davidlowjw/osrm-backend-docker.git
+git clone \
+  --branch=master \
+  https://github.com/maputnik/editor.git
 
 
 # Pelias geocoder
@@ -56,4 +59,11 @@ popd
 # OSRM routing engine
 pushd osrm-backend-docker
 docker build -t davidlowjw/osrm-backend-docker .
+popd
+
+
+# Mapbox GL style editor
+pushd editor
+git reset --hard d62575b9651fa7e132500f62684d7ecd9f326916
+docker build -t maputnik/editor .
 popd
