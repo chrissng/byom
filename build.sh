@@ -3,6 +3,7 @@ set -eu
 
 
 # Clone all the required git repos
+set +e
 git clone \
   --branch=master \
   https://github.com/datagovsg/pelias-docker.git
@@ -21,6 +22,7 @@ git clone \
 git clone \
   --branch=master \
   https://github.com/maputnik/editor.git
+set -e
 
 
 # Pelias geocoder
