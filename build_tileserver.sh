@@ -6,35 +6,19 @@ set -eu
 set +e
 git clone \
   --branch=master \
-  https://github.com/datagovsg/pelias-docker.git
-git clone \
-  --branch=master \
   https://github.com/datagovsg/tileserver-docker.git
 git clone \
   --branch=master \
   https://github.com/osm2vectortiles/osm2vectortiles.git
 git clone \
   --branch=master \
-  https://github.com/datagovsg/valhalla-docker.git
-git clone \
-  --branch=master \
-  https://github.com/davidlowjw/osrm-backend-docker.git
-git clone \
-  --branch=master \
   https://github.com/maputnik/editor.git
 set -e
 
 
-# Pelias geocoder
-pushd pelias-docker
-docker-compose -p pelias up --build -d elasticsearch
-docker-compose build --force-rm --no-cache pelias
-docker-compose -p pelias down
-popd
-
-
 # TileServer-GL vector and raster tile server
 pushd osm2vectortiles
+git pull
 docker-compose up -d postgis
 rm -f import/singapore.osm.pbf
 wget -P import https://s3.amazonaws.com/metro-extracts.mapzen.com/singapore.osm.pbf
@@ -49,24 +33,14 @@ docker-compose run \
 docker-compose down
 popd
 pushd tileserver-docker
+git pull
 cp ../osm2vectortiles/export/tiles.mbtiles export
-popd
-
-
-# Valhalla routing engine
-pushd valhalla-docker
-./build.sh
-popd
-
-
-# OSRM routing engine
-pushd osrm-backend-docker
-docker build -t davidlowjw/osrm-backend-docker .
 popd
 
 
 # Mapbox GL style editor
 pushd editor
-git reset --hard d62575b9651fa7e132500f62684d7ecd9f326916
+#git reset --hard d62575b9651fa7e132500f62684d7ecd9f326916
+git pull
 docker build -t maputnik/editor .
 popd
