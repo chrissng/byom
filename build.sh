@@ -6,16 +6,16 @@ set -eu
 set +e
 git clone \
   --branch=master \
-  https://github.com/datagovsg/pelias-docker.git
+  https://github.com/chrissng/pelias-docker.git
 git clone \
   --branch=master \
-  https://github.com/datagovsg/tileserver-docker.git
+  https://github.com/chrissng/tileserver-docker.git
 git clone \
   --branch=master \
   https://github.com/osm2vectortiles/osm2vectortiles.git
 git clone \
   --branch=master \
-  https://github.com/datagovsg/valhalla-docker.git
+  https://github.com/chrissng/valhalla-docker.git
 git clone \
   --branch=master \
   https://github.com/davidlowjw/osrm-backend-docker.git
