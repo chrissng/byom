@@ -15,7 +15,7 @@ A modern map stack so we can all work in a cave and not rely on anyone.
 - Docker engine
 - Docker compose
 
-## Build
+## Build (You probably only need to build once)
 
 Please ensure you have Docker and Docker Compose installed. Also note that no cache is used when building the docker images for Pelias geocoder and Valhalla routing engine (will take some time to build)
 
@@ -26,8 +26,12 @@ Please ensure you have Docker and Docker Compose installed. Also note that no ca
 #### Only build vector tiles, tileserver and editor
 
 ```bash
-./build-tileserver.sh
+./build_tileserver.sh
 ```
+
+## Rebuild
+
+*TODO*
 
 ## Deploy
 
