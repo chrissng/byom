@@ -8,19 +8,38 @@ A modern map stack so we can all work in a cave and not rely on anyone.
 - OSRM routing engine (routing, nearest street segment, map-matching, round trip, etc.)
 - Maputnik visual style editor for Mapbox GL
 
+## Requirements
+
+- git
+- wget
+- Docker engine
+- Docker compose
+
 ## Build
 
 Please ensure you have Docker and Docker Compose installed. Also note that no cache is used when building the docker images for Pelias geocoder and Valhalla routing engine (will take some time to build)
 
-`./build.sh`
+```bash
+./build.sh
+```
+
+#### Only build vector tiles, tileserver and editor
+
+```bash
+./build-tileserver.sh
+```
 
 ## Deploy
 
-`./run.sh`
+```bash
+./run.sh
+```
 
 ## Undeploy
 
-`./stop.sh`
+```bash
+./stop.sh
+```
 
 #### Notes
 - Valhalla uses six digits of decimal decision for polyline encoding, OSRM uses five.
