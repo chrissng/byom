@@ -20,29 +20,29 @@ A modern map stack so we can all work in a cave and not rely on anyone.
 Please ensure you have Docker and Docker Compose installed. Also note that no cache is used when building the docker images for Pelias geocoder and Valhalla routing engine (will take some time to build)
 
 ```bash
-./build.sh
+build.sh
 ```
 
 #### Only build vector tiles, tileserver and editor
 
 ```bash
-./build_tileserver.sh
+build_tileserver.sh
 ```
 
 ## Rebuild
 
-*TODO*
+_Vector tiles builder (OSM2VectorTiles) docker images and volumes are cleaned up to allow for rebuilds._
 
 ## Deploy
 
 ```bash
-./run.sh
+run.sh
 ```
 
 ## Undeploy
 
 ```bash
-./stop.sh
+stop.sh
 ```
 
 #### Notes
