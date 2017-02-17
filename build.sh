@@ -12,7 +12,7 @@ git clone \
   https://github.com/chrissng/tileserver-docker.git
 git clone \
   --branch=master \
-  https://github.com/osm2vectortiles/osm2vectortiles.git
+  https://github.com/chrissng/osm2vectortiles.git
 git clone \
   --branch=master \
   https://github.com/chrissng/valhalla-docker.git
@@ -42,6 +42,7 @@ docker-compose rm -fv
 docker volume ls -q | grep osm2vectortiles | xargs -r docker volume rm || true
 
 docker-compose up -d postgis
+rm -f export/tiles.mbtiles
 rm -f import/singapore.osm.pbf
 wget -P import https://s3.amazonaws.com/metro-extracts.mapzen.com/singapore.osm.pbf
 docker-compose run import-external

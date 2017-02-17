@@ -26,6 +26,7 @@ docker-compose rm -fv
 docker volume ls -q | grep osm2vectortiles | xargs -r docker volume rm || true
 
 docker-compose up -d postgis
+rm -f export/tiles.mbtiles
 rm -f import/singapore.osm.pbf
 wget -P import https://s3.amazonaws.com/metro-extracts.mapzen.com/singapore.osm.pbf
 docker-compose run import-external
