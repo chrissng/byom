@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu
+set -xeu
 
 docker-compose -p byomp -f pelias-docker/docker-compose.yml up -d
 docker-compose -p byomt -f tileserver-docker/docker-compose.yml up -d

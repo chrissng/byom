@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu
+set -xeu
 
 
 # Clone all the required git repos
