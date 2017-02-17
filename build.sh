@@ -1,6 +1,5 @@
 #!/bin/bash
-set -eu
-
+set -xeu
 
 # Clone all the required git repos
 set +e
@@ -12,7 +11,7 @@ git clone \
   https://github.com/chrissng/tileserver-docker.git
 git clone \
   --branch=master \
-  https://github.com/osm2vectortiles/osm2vectortiles.git
+  https://github.com/chrissng/osm2vectortiles.git
 git clone \
   --branch=master \
   https://github.com/chrissng/valhalla-docker.git
@@ -35,7 +34,14 @@ popd
 
 # TileServer-GL vector and raster tile server
 pushd osm2vectortiles
+
+## Clean images and volumes, refresh images
+docker-compose down -v --remove-orphans
+docker-compose rm -fv
+docker volume ls -q | grep osm2vectortiles | xargs -r docker volume rm || true
+
 docker-compose up -d postgis
+rm -f export/tiles.mbtiles
 rm -f import/singapore.osm.pbf
 wget -P import https://s3.amazonaws.com/metro-extracts.mapzen.com/singapore.osm.pbf
 docker-compose run import-external
@@ -46,7 +52,7 @@ docker-compose run \
   -e MIN_ZOOM="0" \
   -e MAX_ZOOM="22" \
   export
-docker-compose down
+docker-compose down -v --remove-orphans
 popd
 pushd tileserver-docker
 cp ../osm2vectortiles/export/tiles.mbtiles export

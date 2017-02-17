@@ -1,4 +1,5 @@
 #!/bin/bash
+set -xeu
 
 docker-compose -p byomp -f pelias-docker/docker-compose.yml down
 docker-compose -p byomt -f tileserver-docker/docker-compose.yml down
