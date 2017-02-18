@@ -27,7 +27,7 @@ set -e
 # Pelias geocoder
 pushd pelias-docker
 docker-compose -p pelias up --build -d elasticsearch
-docker-compose build --force-rm --no-cache pelias
+docker build --network pelias_peliasnet --build-arg ES_IP=172.28.0.2 --no-cache -f Dockerfile-pelias -t chrissng/pelias .
 docker-compose -p pelias down
 popd
 
