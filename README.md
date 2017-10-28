@@ -36,7 +36,7 @@ _Vector tiles builder (OSM2VectorTiles) docker images and volumes are cleaned up
 ## Deploy
 
 ```bash
-run.sh
+start.sh
 ```
 
 ## Undeploy

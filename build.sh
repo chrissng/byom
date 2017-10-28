@@ -5,7 +5,7 @@ set -xeu
 set +e
 git clone \
   --branch=master \
-  https://github.com/chrissng/pelias-docker.git
+  https://github.com/chrissng/pelias-geocoder-sg.git
 git clone \
   --branch=master \
   https://github.com/chrissng/tileserver-docker.git
@@ -24,11 +24,9 @@ git clone \
 set -e
 
 
-# Pelias geocoder
-pushd pelias-docker
-docker-compose -p pelias up --build -d elasticsearch
-docker build --network pelias_peliasnet --build-arg ES_IP=172.28.0.2 --no-cache -f Dockerfile-pelias -t chrissng/pelias .
-docker-compose -p pelias down
+# Pelias geocoder (downloads the latest data only. it will initialise elasticsearch database upon first startup)
+pushd pelias-geocoder-sg
+docker-compose build --pull --no-cache
 popd
 
 
