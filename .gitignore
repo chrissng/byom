@@ -1,6 +1,6 @@
 rawdata/
 osm2vectortiles/
-pelias-docker/
+pelias-geocoder-sg/
 tileserver-docker/
 valhalla-docker/
 osrm-backend-docker/

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -xeu
 
-docker-compose -p byomp -f pelias-docker/docker-compose.yml down
+docker-compose -p byomp -f pelias-geocoder-sg/docker-compose.yml down
 docker-compose -p byomt -f tileserver-docker/docker-compose.yml down
 docker-compose -p byomv -f valhalla-docker/docker-compose.yml down
 docker stop byom_osrm && docker rm byom_osrm
